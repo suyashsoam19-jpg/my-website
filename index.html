@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>7 Days of Love ❤️</title>
+
+<style>
+body{
+    margin:0;height:100vh;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    font-family:'Segoe UI',sans-serif;
+    display:flex;justify-content:center;align-items:center;
+    text-align:center;overflow:hidden;color:#fff;
+}
+.screen{display:none;animation:fadeIn .8s}
+.screen.active{display:block}
+h1{font-size:3rem;text-shadow:0 0 20px #ff4b5c}
+p{font-size:1.4rem;max-width:520px;margin:auto}
+.small{font-size:1rem;opacity:.85;margin-top:12px}
+.character{font-size:140px;margin:20px 0;animation:bounce 2s infinite}
+
+button{
+    padding:16px 38px;font-size:1.2rem;border:none;
+    border-radius:40px;cursor:pointer;margin:18px;
+    transition:.3s;
+}
+.yes{
+    background:linear-gradient(135deg,#ff4b5c,#ff758c);
+    color:#fff;box-shadow:0 0 25px rgba(255,75,92,.8);
+    animation:glow 1.5s infinite;
+}
+.no{background:#dc3545;color:#fff}
+.yes span{display:inline-block;animation:wiggle 1.2s infinite}
+
+.heart{position:absolute;font-size:20px;animation:float 6s linear infinite}
+
+/* POPUP */
+.popup{
+    position:fixed;inset:0;
+    background:rgba(0,0,0,.5);
+    display:flex;align-items:center;justify-content:center;
+    z-index:10;
+}
+.popup-box{
+    background:#fff;
+    color:#ff4b5c;
+    padding:30px;
+    border-radius:25px;
+    max-width:380px;
+    text-align:center;
+    animation:fadeIn .6s;
+}
+.popup-box p{color:#444;font-size:1.1rem}
+.popup-box button{margin-top:15px}
+
+/* Animations */
+@keyframes float{
+    0%{transform:translateY(100vh);opacity:0}
+    50%{opacity:1}
+    100%{transform:translateY(-10vh);opacity:0}
+}
+@keyframes bounce{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-25px)}
+}
+@keyframes glow{
+    0%{box-shadow:0 0 15px #ff4b5c}
+    50%{box-shadow:0 0 35px #ff1e38}
+    100%{box-shadow:0 0 15px #ff4b5c}
+}
+@keyframes wiggle{
+    0%,100%{transform:rotate(0)}
+    25%{transform:rotate(10deg)}
+    75%{transform:rotate(-10deg)}
+}
+@keyframes fadeIn{
+    from{opacity:0;transform:scale(.9)}
+    to{opacity:1;transform:scale(1)}
+}
+</style>
+</head>
+
+<body>
+
+<!-- START DISCLAIMER POPUP -->
+<div class="popup" id="startPopup">
+  <div class="popup-box">
+    <h2>Just for Fun 😄</h2>
+    <p>
+      This website is made only for fun & entertainment 💕<br>
+      No seriousness, no pressure — just smiles 😌
+    </p>
+    <button class="yes" onclick="closeStartPopup()">Okeyyy 😄</button>
+  </div>
+</div>
+
+<!-- SCREENS -->
+<div class="screen active">
+<h1>Ready for 7 Days of Love Motuuu? ❤️</h1>
+<div class="character">🧸</div>
+<p>Warning ⚠️ This may cause smiling & blushing 😏</p>
+<button class="yes" id="yesBtn" onclick="startLove()">YES 💖</button>
+<button class="no" id="noBtn" onclick="handleNo()">NO 🙈</button>
+</div>
+
+<div class="screen">
+<h1>Day 1 – Rose Day 🌹</h1>
+<div class="character">🌹</div>
+<p>Phool for my fool 🌻<br>  
+(Real one is expensive, so please imagine harder 😜)</p>
+<button class="yes" onclick="nextDay()"><span>🌹</span> Accept Rose →</button>
+</div>
+
+<div class="screen">
+<h1>Day 2 – Propose Day 💍</h1>
+<div class="character">💍</div>
+<p>I would propose on one knee…  
+but NTA comes first” 😅❤️</p>
+<button class="yes" onclick="nextDay()"><span>💍</span> Say Yes →</button>
+</div>
+
+<div class="screen">
+<h1>Day 3 – Chocolate Day 🍫</h1>
+<div class="character">🍫</div>
+<p>You’re sweeter than chocolate 🍫  
+which is scary… because chocolate is already perfect <br>(I know it is very bad line)😏</p>
+<button class="yes" onclick="nextDay()"><span>🍫</span> More →</button>
+</div>
+
+<div class="screen">
+<h1>Day 4 – Teddy Day 🧸</h1>
+<div class="character">🧸</div>
+<p>Just see yourself in mirror motuuu 😂</p>
+<button class="yes" onclick="nextDay()"><span>🧸</span> Hug →</button>
+</div>
+
+<div class="screen">
+<h1>Day 5 – Promise Day 🤞</h1>
+<div class="character">🤞</div>
+<p>I promise to annoy you, tease you,<br>  
+and listen your song recommendations 😂💖</p>
+<button class="yes" onclick="nextDay()"><span>🤞</span> Deal →</button>
+</div>
+
+<div class="screen">
+<h1>Day 6 – Hug Day 🤗</h1>
+<div class="character">🤗</div>
+<p>This hug is free 🤍  
+but once you accept, you’re not allowed to escape 😆</p>
+<button class="yes" onclick="nextDay()"><span>🤗</span> Squeeze →</button>
+</div>
+
+<div class="screen">
+<h1>Day 7 – Kiss Day 😘</h1>
+<div class="character">😘</div>
+<p>Purely imaginary 💋</p>
+<button class="yes" onclick="nextDay()"><span>😘</span> One More →</button>
+</div>
+
+<div class="screen">
+<h1>Valentine’s Day ❤️</h1>
+<div class="character">💝</div>
+<p>Congrats 🎉  
+You survived 7 days of love…<br>  
+"Now back to your studies" 😏😈💘</p>
+<button class="yes" onclick="showEndPopup()"><span>❤️</span> Finish →</button>
+</div>
+
+<!-- END DISCLAIMER POPUP -->
+<div class="popup" id="endPopup" style="display:none">
+  <div class="popup-box">
+    <h2>Final Disclaimer 😄</h2>
+    <p>
+      This whole journey was just for fun 💫<br>
+      Don’t take it seriously ❤️
+    </p>
+    <button class="yes" onclick="location.reload()">Okeyyy 😄</button>
+  </div>
+</div>
+
+<script>
+const screens=document.querySelectorAll(".screen");
+let current=0;
+let yesScale=1;
+let noTexts=["Are you sure? 🤔","Think again 😏","Really? 😢","Still no? 😂"];
+let noIndex=0;
+
+function handleNo(){
+ const yesBtn=document.getElementById("yesBtn");
+ const noBtn=document.getElementById("noBtn");
+ noBtn.innerText=noTexts[noIndex%noTexts.length];
+ noIndex++;
+ yesScale+=0.3;
+ yesBtn.style.transform=`scale(${yesScale})`;
+}
+
+function closeStartPopup(){
+ document.getElementById("startPopup").style.display="none";
+}
+
+function startLove(){
+ screens[current].classList.remove("active");
+ current++;
+ screens[current].classList.add("active");
+}
+
+function nextDay(){
+ screens[current].classList.remove("active");
+ current++;
+ screens[current].classList.add("active");
+}
+
+function showEndPopup(){
+ document.getElementById("endPopup").style.display="flex";
+}
+
+setInterval(()=>{
+ const h=document.createElement("div");
+ h.className="heart";
+ h.innerHTML="❤️";
+ h.style.left=Math.random()*100+"vw";
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),6000);
+},300);
+</script>
+
+</body>
+</html>
